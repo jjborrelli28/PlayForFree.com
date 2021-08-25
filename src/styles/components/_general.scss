@@ -1,0 +1,19 @@
+// Colors
+$primary: white;
+$secundary: rgb(193, 193, 193);
+$tertiary: rgb(128, 128, 128);
+
+html,
+body {
+  height: 100vh;
+  width: 100%;
+  color: $primary;
+}
+
+#root {
+  height: 100%;
+}
+
+.app-router {
+  height: 100%;
+}

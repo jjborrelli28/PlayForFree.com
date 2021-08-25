@@ -1,0 +1,33 @@
+.home-screen {
+  max-height: 100%;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 17.5rem;
+  background-image: url("banner.jpg");
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 1.5rem;
+  background-attachment: fixed;
+  h1 {
+    font-size: 400%;
+    font-weight: bold;
+    font-style: italic;
+  }
+  h4 {
+    color: $secundary;
+  }
+}
+
+.filter-search {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 1.75rem;
+  h3 {
+    margin-left: 0.5rem;
+  }
+}

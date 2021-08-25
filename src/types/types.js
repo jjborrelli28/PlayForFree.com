@@ -1,0 +1,28 @@
+export const types = {
+  search: "Search",
+
+  pc: "Pc",
+  web: "Web",
+  todasPlataformas: "Todas Plataformas",
+
+  mmorpg: "MMORPG",
+  shooter: "Shooter",
+  estrategia: "Estrategia",
+  moba: "MOBA",
+  carrera: "Carrera",
+  deporte: "Deporte",
+  mundoAbierto: "Mundo Abierto",
+  pvp: "PvP",
+  primeraPersona: "Primera Persona",
+  terceraPersona: "Tercera Persona",
+  anime: "Anime",
+  card: "Card",
+  battleRoyale: "Battle Royale",
+  fantasia: "Fantasía",
+  lucha: "Lucha",
+  accion: "Acción",
+  militar: "Militar",
+  vuelo: "Vuelo",
+  horror: "Horror",
+  todasCategorias: "Todas Categorias",
+};
