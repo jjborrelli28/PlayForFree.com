@@ -28,6 +28,4 @@ export const types = {
   flight: "Flight",
   horror: "Horror",
   allCategorys: "All",
-
-  gameSelect: "idGame",
 };

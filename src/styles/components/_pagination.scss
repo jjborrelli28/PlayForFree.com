@@ -9,3 +9,18 @@
 .w-3 {
   width: 2.75rem;
 }
+
+@media screen and (max-width: 468px) {
+  .collapsed {
+    margin: auto;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .search {
+    width: 100%;
+    margin: auto;
+  }
+}

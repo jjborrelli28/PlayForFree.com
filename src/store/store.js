@@ -1,7 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { categoryReducer } from "../reducers/categoryReducer";
-import { gameReducer } from "../reducers/gameReducer";
 import { orderReducer } from "../reducers/orderReducer";
 import { platformReducer } from "../reducers/platformReducer";
 import { searchReducer } from "../reducers/searchReducer";
@@ -16,7 +15,6 @@ const reducers = combineReducers({
   order: orderReducer,
   platform: platformReducer,
   category: categoryReducer,
-  game: gameReducer,
 });
 
 export const store = createStore(

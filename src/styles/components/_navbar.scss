@@ -8,3 +8,16 @@
 .form-navbar {
   width: 33.3%;
 }
+
+@media screen and (max-width: 468px) {
+  .position {
+    position: initial;
+  }
+
+  .container-fluid {
+    font-size: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+  }
+}

@@ -1,12 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import CarouselComponent from "./CarouselComponent";
+import { NavLink } from "react-router-dom";
 
 export const Game = () => {
-  const idGame = useSelector((state) => state.game);
+  const { gameId } = useParams();
 
-  const url = `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${idGame}`;
+  const url = `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${gameId}`;
 
   const { data, loading } = useFetch(url);
 
@@ -23,7 +24,7 @@ export const Game = () => {
       <div className="filter-search">
         <h3 className="categories animate__animated animate__fadeIn animate__slow">
           {}
-          Home {`> Game`}
+          <NavLink to="/">Home</NavLink> {`> Game`}
           {data && `> ${data.platform}`}
           {data && ` > ${data.genre}`}
         </h3>

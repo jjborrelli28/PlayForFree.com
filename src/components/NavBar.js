@@ -36,11 +36,12 @@ export const NavBar = () => {
   const { categorySelect } = useSelector((state) => state.category);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-4 fs-5 bg-dark bg-gradient ps-5 position">
-      <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-4 fs-5 bg-dark bg-gradient ps-5 position hide">
+      <div className="container-fluid collapsed">
+        <NavLink className="navbar-brand hide" to="/">
           <i className="far fa-hand-scissors"></i> <i>PlayForFree.com</i>
         </NavLink>
+
         <div className="collapse navbar-collapse ms-5" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item dropdown">
@@ -236,7 +237,7 @@ export const NavBar = () => {
           </ul>
         </div>
 
-        <form className="d-flex  form-navbar">
+        <form className="d-flex form-navbar search">
           <input
             className="form-control"
             type="text"

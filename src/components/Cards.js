@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Pagination } from "./Pagination";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { types } from "../types/types";
 
 export const Cards = ({ data }) => {
   const handlePlay = (url) => {
@@ -30,13 +29,6 @@ export const Cards = ({ data }) => {
   }
 
   const games = gamesFilter.slice((page - 1) * 20, [page * 20]);
-
-  const dispatch = useDispatch();
-
-  const handleGameSelect = (id) => {
-    const action = { type: types.gameSelect, payload: id };
-    dispatch(action);
-  };
 
   return (
     <main>
@@ -69,12 +61,7 @@ export const Cards = ({ data }) => {
                 <p>
                   <b>PLATFORM</b>: {game.platform.toUpperCase()}
                 </p>
-                <NavLink
-                  className="more-info"
-                  exact
-                  to="/game"
-                  onClick={() => handleGameSelect(game.id)}
-                >
+                <NavLink className="more-info" exact to={`/game/${game.id}`}>
                   More info...
                 </NavLink>
               </div>

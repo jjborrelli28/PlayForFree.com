@@ -35,7 +35,11 @@ export const Pagination = ({ page, pages, setPage }) => {
             </NavLink>
           </li>
           {pages.map((page) => (
-            <li className="page-item w-3" onClick={handleSelect} key={page}>
+            <li
+              className={"page-item w-3 hide"}
+              onClick={handleSelect}
+              key={page}
+            >
               <NavLink className="page-link pt-2 pb-2" to="/" id="one">
                 {page}
               </NavLink>
