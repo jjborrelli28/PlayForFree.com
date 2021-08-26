@@ -1,9 +1,11 @@
 import { types } from "../types/types";
 
-export const searchReducer = (state = "", action) => {
+const initialState = { search: "" };
+
+export const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.search:
-      return action.payload;
+      return { search: action.payload };
     default:
       return state;
   }

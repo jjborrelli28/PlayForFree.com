@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Pagination } from "./Pagination";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { types } from "../types/types";
 
 export const Cards = ({ data }) => {
   const handlePlay = (url) => {
     window.location = `${url}`;
   };
 
-  const state = useSelector((state) => state.search);
+  const { search } = useSelector((state) => state.search);
 
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     setPage(1);
-  }, [state]);
+  }, [search]);
 
   const gamesFilter = data.filter((game) =>
-    game.title.toLocaleLowerCase().includes(state.toLowerCase())
+    game.title.toLocaleLowerCase().includes(search.toLowerCase())
   );
 
   const numberOfPages = Math.ceil(gamesFilter.length / 20);
@@ -29,6 +30,13 @@ export const Cards = ({ data }) => {
   }
 
   const games = gamesFilter.slice((page - 1) * 20, [page * 20]);
+
+  const dispatch = useDispatch();
+
+  const handleGameSelect = (id) => {
+    const action = { type: types.gameSelect, payload: id };
+    dispatch(action);
+  };
 
   return (
     <main>
@@ -53,22 +61,29 @@ export const Cards = ({ data }) => {
               <div className="description-container">
                 <h4>{game.title}</h4>
                 <p>
-                  <b>GENERO</b>: {game.genre.toUpperCase()}
+                  <b>GENRE</b>: {game.genre.toUpperCase()}
                 </p>
                 <p>
-                  <b>DESARROLLADOR</b>: {game.developer.toUpperCase()}
+                  <b>DEVELOPER</b>: {game.developer.toUpperCase()}
                 </p>
                 <p>
-                  <b>PLATAFORMA</b>: {game.platform.toUpperCase()}
+                  <b>PLATFORM</b>: {game.platform.toUpperCase()}
                 </p>
-                <NavLink to="#">Mas info...</NavLink>
+                <NavLink
+                  className="more-info"
+                  exact
+                  to="/game"
+                  onClick={() => handleGameSelect(game.id)}
+                >
+                  More info...
+                </NavLink>
               </div>
               <button
                 type="button"
                 className="btn btn-primary btn-lg btn-block btn-card"
                 onClick={() => handlePlay(game.game_url)}
               >
-                JUGAR <b>GRATIS</b> AHORA
+                PLAY <b>FREE</b> NOW
               </button>
             </div>
           ))}

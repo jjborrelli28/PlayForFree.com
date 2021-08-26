@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useForm } from "../hooks/useForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export const NavBar = () => {
   const dispatch = useDispatch();
@@ -10,25 +10,36 @@ export const NavBar = () => {
 
   useEffect(() => {}, [values]);
 
-  const handlePlataformClick = (e) => {
+  const handleOrderClick = (e) => {
     e.preventDefault();
-    const plataform = e.target.id;
-    const action = { type: plataform };
+    const order = e.target.textContent;
+    const action = { type: order };
+    dispatch(action);
+  };
+
+  const handlePlatformClick = (e) => {
+    e.preventDefault();
+    const platform = e.target.textContent;
+    const action = { type: platform };
     dispatch(action);
   };
 
   const handleCategoryClick = (e) => {
     e.preventDefault();
-    const category = e.target.id;
+    const category = e.target.textContent;
     const action = { type: category };
     dispatch(action);
   };
+
+  const { orderSelect } = useSelector((state) => state.order);
+  const { platformSelect } = useSelector((state) => state.platform);
+  const { categorySelect } = useSelector((state) => state.category);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-4 fs-5 bg-dark bg-gradient ps-5 position">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
-          <i className="far fa-hand-scissors"></i> <i>DalePlay.com</i>
+          <i className="far fa-hand-scissors"></i> <i>PlayForFree.com</i>
         </NavLink>
         <div className="collapse navbar-collapse ms-5" id="navbarNavDropdown">
           <ul className="navbar-nav">
@@ -41,40 +52,20 @@ export const NavBar = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Plataforma
+                Order: {orderSelect}
               </NavLink>
               <ul
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <li onClick={handlePlataformClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Pc"
-                  >
-                    Windows (PC)
+                <li onClick={handleOrderClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Popularity
                   </NavLink>
                 </li>
-                <li onClick={handlePlataformClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Web"
-                  >
-                    Browser (Web)
-                  </NavLink>
-                </li>
-                <li onClick={handlePlataformClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Todas Plataformas"
-                  >
-                    Todas
+                <li onClick={handleOrderClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Alphabetical
                   </NavLink>
                 </li>
               </ul>
@@ -89,210 +80,143 @@ export const NavBar = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Categoria
+                Platform: {platformSelect}
+              </NavLink>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li onClick={handlePlatformClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Windows (PC)
+                  </NavLink>
+                </li>
+                <li onClick={handlePlatformClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Browser (Web)
+                  </NavLink>
+                </li>
+                <li onClick={handlePlatformClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    All
+                  </NavLink>
+                </li>
+              </ul>
+            </li>
+
+            <li className="nav-item dropdown">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                to="/"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Category: {categorySelect}
               </NavLink>
               <ul
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="MMORPG"
-                  >
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
                     MMORPG
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Shooter"
-                  >
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
                     Shooter
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Estrategia"
-                  >
-                    Estrategia
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Strategy
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="MOBA"
-                  >
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
                     MOBA
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Carrera"
-                  >
-                    Carrera
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Racing
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Deporte"
-                  >
-                    Deporte
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Sports
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Mundo Abierto"
-                  >
-                    Mundo Abierto
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Open World
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="PvP"
-                  >
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
                     PvP
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Primera Persona"
-                  >
-                    Primera Persona
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    First Person
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Tercera Persona"
-                  >
-                    Tercera Persona
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Third Person
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Anime"
-                  >
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
                     Anime
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Card"
-                  >
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
                     Card
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Battle Royale"
-                  >
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
                     Battle Royale
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Fantasía"
-                  >
-                    Fantasía
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Fantasy
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Lucha"
-                  >
-                    Lucha
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Fighting
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Acción"
-                  >
-                    Acción
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Action
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Militar"
-                  >
-                    Militar
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Military
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Vuelo"
-                  >
-                    Vuelo
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Flight
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Horror"
-                  >
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
                     Horror
                   </NavLink>
                 </li>
                 <li onClick={handleCategoryClick}>
-                  <NavLink
-                    activeClassName=""
-                    className="dropdown-item"
-                    to="/"
-                    id="Todas Categorias"
-                  >
-                    Todas
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    All
                   </NavLink>
                 </li>
               </ul>
@@ -306,7 +230,7 @@ export const NavBar = () => {
                 exact
                 to="/donations"
               >
-                Donaciones
+                Donations
               </NavLink>
             </li>
           </ul>
@@ -316,7 +240,7 @@ export const NavBar = () => {
           <input
             className="form-control"
             type="text"
-            placeholder="Buscar por nombre del de juego"
+            placeholder="Search by game name"
             value={values}
             onChange={handleInputChange}
           />

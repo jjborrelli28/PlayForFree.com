@@ -1,7 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { categoryReducer } from "../reducers/categoryReducer";
-import { plataformReducer } from "../reducers/plataformReducer";
+import { gameReducer } from "../reducers/gameReducer";
+import { orderReducer } from "../reducers/orderReducer";
+import { platformReducer } from "../reducers/platformReducer";
 import { searchReducer } from "../reducers/searchReducer";
 
 const composeEnhancers =
@@ -11,8 +13,10 @@ const composeEnhancers =
 
 const reducers = combineReducers({
   search: searchReducer,
-  plataform: plataformReducer,
+  order: orderReducer,
+  platform: platformReducer,
   category: categoryReducer,
+  game: gameReducer,
 });
 
 export const store = createStore(

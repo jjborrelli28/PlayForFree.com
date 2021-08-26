@@ -1,7 +1,7 @@
 import { types } from "../types/types";
 
 const initialState = {
-  categorySelect: `Todas`,
+  categorySelect: `All`,
   category: ``,
 };
 
@@ -17,7 +17,7 @@ export const categoryReducer = (state = initialState, action) => {
         categorySelect: action.type,
         category: `&category=shooter`,
       };
-    case types.estrategia:
+    case types.strategy:
       return {
         categorySelect: action.type,
         category: `&category=strategy`,
@@ -27,17 +27,17 @@ export const categoryReducer = (state = initialState, action) => {
         categorySelect: action.type,
         category: `&category=moba`,
       };
-    case types.carrera:
+    case types.racing:
       return {
         categorySelect: action.type,
         category: `&category=racing`,
       };
-    case types.deporte:
+    case types.sports:
       return {
         categorySelect: action.type,
         category: `&category=sports`,
       };
-    case types.mundoAbierto:
+    case types.openWorld:
       return {
         categorySelect: action.type,
         category: `&category=open-world`,
@@ -47,15 +47,15 @@ export const categoryReducer = (state = initialState, action) => {
         categorySelect: action.type,
         category: `&category=pvp`,
       };
-    case types.primeraPersona:
+    case types.firstPerson:
       return {
         categorySelect: action.type,
         category: `&category=first-person`,
       };
-    case types.terceraPersona:
+    case types.thirdPerson:
       return {
         categorySelect: action.type,
-        category: `&category=third-Person`,
+        category: `&category=third-person`,
       };
     case types.anime:
       return {
@@ -72,28 +72,27 @@ export const categoryReducer = (state = initialState, action) => {
         categorySelect: action.type,
         category: `&category=battle-royale`,
       };
-
-    case types.fantasia:
+    case types.fantasy:
       return {
         categorySelect: action.type,
         category: `&category=fantasy`,
       };
-    case types.lucha:
+    case types.fighting:
       return {
         categorySelect: action.type,
         category: `&category=fighting`,
       };
-    case types.accion:
+    case types.action:
       return {
         categorySelect: action.type,
         category: `&category=action`,
       };
-    case types.militar:
+    case types.military:
       return {
         categorySelect: action.type,
         category: `&category=military`,
       };
-    case types.vuelo:
+    case types.flight:
       return {
         categorySelect: action.type,
         category: `&category=flight`,
@@ -103,7 +102,7 @@ export const categoryReducer = (state = initialState, action) => {
         categorySelect: action.type,
         category: `&category=horror`,
       };
-    case types.todasCategorias:
+    case types.allCategorys:
       return {
         categorySelect: action.type,
         category: ``,
