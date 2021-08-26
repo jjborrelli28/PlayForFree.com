@@ -41,7 +41,7 @@ export const Cards = ({ data }) => {
   return (
     <main>
       {gamesFilter.length === 0 ? (
-        <h1 className="message">
+        <h1 className="message animate__animated animate__fadeIn animate__slow">
           No se encontraron resultados para su busqueda
         </h1>
       ) : (

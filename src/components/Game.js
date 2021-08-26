@@ -21,7 +21,7 @@ export const Game = () => {
         </h4>
       </div>
       <div className="filter-search">
-        <h3 className="categories">
+        <h3 className="categories animate__animated animate__fadeIn animate__slow">
           {}
           Home {`> Game`}
           {data && `> ${data.platform}`}
@@ -35,7 +35,7 @@ export const Game = () => {
           </div>
         </div>
       ) : (
-        <div className="game-container">
+        <div className="game-container animate__animated animate__fadeIn animate__slow">
           <div className="game-info-container">
             <div className="img-container">
               <img src={data.thumbnail} alt="thumbnail" />
