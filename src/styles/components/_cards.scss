@@ -58,6 +58,10 @@ main {
     flex-direction: column;
   }
 
+  .card {
+    padding-bottom: 1rem;
+  }
+
   .description-container {
     padding: 1rem;
     h4 {
@@ -71,6 +75,6 @@ main {
 
   .btn-card {
     font-size: 1.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
   }
 }
