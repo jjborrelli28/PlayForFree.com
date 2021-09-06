@@ -6,18 +6,21 @@
 }
 
 .form-navbar {
-  width: 33.3%;
+  width: 50%;
+}
+
+.navbar-nav {
+  width: 100%;
+}
+
+.input-search {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 @media screen and (max-width: 468px) {
-  .position {
-    position: initial;
-  }
-
-  .container-fluid {
-    font-size: 50%;
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
+  .input-search {
+    margin-top: 1rem;
   }
 }

@@ -40,9 +40,13 @@ main {
   }
 }
 
-.btn-card {
+.btn-card-container {
   margin: 1rem;
-  margin-top: 0;
+  margin-top: 0px;
+}
+
+.btn-card {
+  width: 100%;
 }
 
 .message {
@@ -58,10 +62,6 @@ main {
     flex-direction: column;
   }
 
-  .card {
-    padding-bottom: 1rem;
-  }
-
   .description-container {
     padding: 1rem;
     h4 {
@@ -75,6 +75,5 @@ main {
 
   .btn-card {
     font-size: 1.25rem;
-    margin-bottom: 0rem;
   }
 }

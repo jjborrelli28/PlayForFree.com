@@ -23,7 +23,7 @@ export const HomeScreen = () => {
           <i>The best Free To Play games find them Here!</i>
         </h4>
       </div>
-      <div className="filter-search">
+      <div className="msg-filter-search">
         <h3 className="categories animate__animated animate__fadeIn animate__slow">
           Home {`> ${orderSelect}`}{" "}
           {platformSelect !== "All" && `> ${platformSelect}`}{" "}

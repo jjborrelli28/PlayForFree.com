@@ -65,13 +65,15 @@ export const Cards = ({ data }) => {
                   More info...
                 </NavLink>
               </div>
-              <button
-                type="button"
-                className="btn btn-primary btn-lg btn-block btn-card"
-                onClick={() => handlePlay(game.game_url)}
-              >
-                PLAY <b>FREE</b> NOW
-              </button>
+              <div className="btn-card-container">
+                <button
+                  type="button"
+                  className="btn btn-primary btn-lg btn-block btn-card"
+                  onClick={() => handlePlay(game.game_url)}
+                >
+                  PLAY <b>FREE</b> NOW
+                </button>
+              </div>
             </div>
           ))}
         </div>

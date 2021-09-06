@@ -23,7 +23,7 @@
   }
 }
 
-.filter-search {
+.msg-filter-search {
   width: 80%;
   margin: auto;
   margin-bottom: 1.75rem;
@@ -34,18 +34,12 @@
 
 @media screen and (max-width: 468px) {
   .banner {
-    height: 8rem;
-    margin-bottom: 1rem;
-    h1 {
-      font-size: 2rem;
-    }
-    h4 {
-      font-size: 1rem;
-    }
+    display: none;
   }
 
-  .filter-search {
+  .msg-filter-search {
     width: 100%;
+    padding-right: 1rem;
     margin-bottom: 1rem;
     h3 {
       font-size: 1.25rem;

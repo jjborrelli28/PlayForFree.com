@@ -36,7 +36,7 @@ export const Pagination = ({ page, pages, setPage }) => {
           </li>
           {pages.map((page) => (
             <li
-              className={"page-item w-3 hide"}
+              className={"page-item width-item hide"}
               onClick={handleSelect}
               key={page}
             >

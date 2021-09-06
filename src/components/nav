@@ -1,0 +1,212 @@
+<nav className="navbar navbar-expand-lg navbar-dark bg-dark p-4 fs-5 bg-dark bg-gradient ps-5 position hide">
+      <div className="container-fluid collapsed">
+        <NavLink className="navbar-brand hide" to="/">
+          <i className="far fa-hand-scissors"></i> <i>PlayForFree.com</i>
+        </NavLink>
+
+        <div className="collapse navbar-collapse ms-5" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            <li className="nav-item dropdown">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                to="/"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Order: {orderSelect}
+              </NavLink>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li onClick={handleOrderClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Popularity
+                  </NavLink>
+                </li>
+                <li onClick={handleOrderClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Alphabetical
+                  </NavLink>
+                </li>
+              </ul>
+            </li>
+
+            <li className="nav-item dropdown">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                to="/"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Platform: {platformSelect}
+              </NavLink>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li onClick={handlePlatformClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Windows (PC)
+                  </NavLink>
+                </li>
+                <li onClick={handlePlatformClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Browser (Web)
+                  </NavLink>
+                </li>
+                <li onClick={handlePlatformClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    All
+                  </NavLink>
+                </li>
+              </ul>
+            </li>
+
+            <li className="nav-item dropdown">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                to="/"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Category: {categorySelect}
+              </NavLink>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    MMORPG
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Shooter
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Strategy
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    MOBA
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Racing
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Sports
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Open World
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    PvP
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    First Person
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Third Person
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Anime
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Card
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Battle Royale
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Fantasy
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Fighting
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Action
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Military
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Flight
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    Horror
+                  </NavLink>
+                </li>
+                <li onClick={handleCategoryClick}>
+                  <NavLink activeClassName="" className="dropdown-item" to="/">
+                    All
+                  </NavLink>
+                </li>
+              </ul>
+            </li>
+
+            <li className="nav-item">
+              <NavLink
+                activeClassName="active"
+                className="nav-link"
+                aria-current="page"
+                exact
+                to="/donations"
+              >
+                Donations
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        <form className="d-flex form-navbar search">
+          <input
+            className="form-control"
+            type="text"
+            placeholder="Search by game name"
+            value={values}
+            onChange={handleInputChange}
+          />
+        </form>
+      </div>
+    </nav>

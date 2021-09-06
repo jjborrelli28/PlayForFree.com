@@ -1,9 +1,22 @@
-import { NavLink } from "react-router-dom";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "../hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 
 export const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
   const dispatch = useDispatch();
 
   const [values, handleInputChange] = useForm("");
@@ -36,217 +49,119 @@ export const NavBar = () => {
   const { categorySelect } = useSelector((state) => state.category);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-4 fs-5 bg-dark bg-gradient ps-5 position hide">
-      <div className="container-fluid collapsed">
-        <NavLink className="navbar-brand hide" to="/">
+    <div>
+      <Navbar
+        className="navbar navbar-expand-lg navbar-dark bg-dark p-4 fs-5 bg-dark bg-gradient ps-5 position"
+        expand="md"
+      >
+        <NavbarBrand href="/" className="ms-1 me-5">
           <i className="far fa-hand-scissors"></i> <i>PlayForFree.com</i>
-        </NavLink>
+        </NavbarBrand>
 
-        <div className="collapse navbar-collapse ms-5" id="navbarNavDropdown">
-          <ul className="navbar-nav">
-            <li className="nav-item dropdown">
-              <NavLink
-                className="nav-link dropdown-toggle"
-                to="/"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
                 Order: {orderSelect}
-              </NavLink>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li onClick={handleOrderClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Popularity
-                  </NavLink>
-                </li>
-                <li onClick={handleOrderClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Alphabetical
-                  </NavLink>
-                </li>
-              </ul>
-            </li>
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem onClick={handleOrderClick}>
+                  Popularity
+                </DropdownItem>
+                <DropdownItem onClick={handleOrderClick}>
+                  Alphabetical
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
 
-            <li className="nav-item dropdown">
-              <NavLink
-                className="nav-link dropdown-toggle"
-                to="/"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
                 Platform: {platformSelect}
-              </NavLink>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li onClick={handlePlatformClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Windows (PC)
-                  </NavLink>
-                </li>
-                <li onClick={handlePlatformClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Browser (Web)
-                  </NavLink>
-                </li>
-                <li onClick={handlePlatformClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    All
-                  </NavLink>
-                </li>
-              </ul>
-            </li>
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem onClick={handlePlatformClick}>
+                  Windows (PC)
+                </DropdownItem>
+                <DropdownItem onClick={handlePlatformClick}>
+                  Browser (Web)
+                </DropdownItem>
+                <DropdownItem onClick={handlePlatformClick}>All</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
 
-            <li className="nav-item dropdown">
-              <NavLink
-                className="nav-link dropdown-toggle"
-                to="/"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
                 Category: {categorySelect}
-              </NavLink>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    MMORPG
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Shooter
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Strategy
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    MOBA
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Racing
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Sports
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Open World
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    PvP
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    First Person
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Third Person
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Anime
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Card
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Battle Royale
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Fantasy
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Fighting
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Action
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Military
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Flight
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    Horror
-                  </NavLink>
-                </li>
-                <li onClick={handleCategoryClick}>
-                  <NavLink activeClassName="" className="dropdown-item" to="/">
-                    All
-                  </NavLink>
-                </li>
-              </ul>
-            </li>
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem onClick={handleCategoryClick}>
+                  MMORPG
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Shooter
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Strategy
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>MOBA</DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Racing
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Sports
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Open World
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>PvP</DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  First Person
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Third Person
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>Anime</DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>Card</DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Battle Royale
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Fantasy
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Fighting
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Action
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Military
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Flight
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>
+                  Horror
+                </DropdownItem>
+                <DropdownItem onClick={handleCategoryClick}>All</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
 
-            <li className="nav-item">
-              <NavLink
-                activeClassName="active"
-                className="nav-link"
-                aria-current="page"
-                exact
-                to="/donations"
-              >
-                Donations
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-
-        <form className="d-flex form-navbar search">
-          <input
-            className="form-control"
-            type="text"
-            placeholder="Search by game name"
-            value={values}
-            onChange={handleInputChange}
-          />
-        </form>
-      </div>
-    </nav>
+            <NavItem className="input-search">
+              <form className="d-flex form-navbar search">
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Search by game name"
+                  value={values}
+                  onChange={handleInputChange}
+                />
+              </form>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
   );
 };
